@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Losowanie liczb</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <div class="banner">
+            <div class="logo">
+                Losowe ciągi
+            </div>
+            <span class="podpis">
+                By Krystian Tomczyk
+            </span>
+        </div>
+        <br>
+        <div class="inputy">
+            <span class="label">Ilość znaków</span>
+            <input type="number" v-model="ilosc_znakow">
+            <span class="label"> Ilość losowań</span>
+            <input type="number" v-model="ilosc_losowan">
+            <input type="button" value="Wylosuj" v-on:click="wylosuj()">
+        </div>
+        <div class="losowanie" v-for="dane in losowanie">
+            <div class="losowanie_numer">
+                LOSOWANIE NR {{ dane.numer }}
+                <div class="szansa">
+                    Prawdopodobienstwo wylosowania identycznego ciągu to: <span style="color: #00ff9c;">{{ dane.prawdopodobienstwo }}</span>
+                </div>
+            </div>
+            <div class="losowanie_element" v-for="element in dane.elementy">
+                {{ element }}
+            </div>
+            <div class="losowanie_data">
+                {{ dane.data }}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                ilosc_znakow: '1',
+                ilosc_losowan: '1',
+                losowanie: [],
+            },
+            methods: {
+                wylosuj: function () {
+                    var data = new Date();
+                    var znaki = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                        'j', 'k', 'l', 'm', 'n', 'o', 'u', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+                        'y', 'z'
+                    ]
+                    var wylosowany_ciag = [];
+                    for (var i = 0; i < this.ilosc_losowan; i++) {
+                        for (var y = 0; y < this.ilosc_znakow; y++) {
+                            wylosowany_ciag[y] = Math.floor(Math.random() * znaki.length);
+                            wylosowany_ciag[y] = znaki[wylosowany_ciag[y]];
+                        };
+                        this.losowanie.push({
+                            data: 'Wylosowano ' + data.getDate() + "." + (data.getMonth() + 1) +
+                                "." + data.getFullYear() + ' o ' + data.getHours() + ":" + data
+                                .getMinutes(),
+                            numer: this.losowanie.length + 1,
+                            elementy: wylosowany_ciag,
+                            prawdopodobienstwo: '1/' + Math.pow(znaki.length, this.ilosc_znakow)
+                        })
+                        wylosowany_ciag = [];
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

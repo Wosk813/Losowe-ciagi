@@ -1,0 +1,111 @@
+body {
+    background-color: #2e2837;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+input[type=number] {
+    background-color: #473f53;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    color: white;
+}
+
+input[type=button] {
+    background-color: #00ff9c;
+    color: #2e2837;
+    border: none;
+    padding: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 2px;
+    float: right;
+}
+
+input[type=button]:hover {
+    cursor: pointer;
+}
+
+.label {
+    color: #00ff9c;
+    font-weight: 900;
+}
+
+.logo {
+    text-transform: uppercase;
+    color: #00ff9c;
+    border: 5px solid #00ff9c;
+    width: fit-content;
+    padding: 8px;
+    font-size: 40px;
+    font-weight: bold;
+    border-radius: 3px;
+    text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.losowanie {
+    margin-top: 30px;
+    width: 1000px;
+    border: 3px solid #00ff9c;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.losowanie_numer {
+    background-color: #473f53;
+    padding: 5px;
+}
+
+.losowanie_element {
+    display: inline-block;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 3px;
+    background-color: #473f53;
+    margin: 10px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+    width: 17px;
+    text-align: center;
+    color: #8affd2;
+}
+
+.losowanie_data {
+    background-color: #473f53;
+    text-align: right;
+    padding: 5px;
+    font-style: oblique;
+    margin-top: 10px;
+}
+
+.inputy {
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.szansa {
+    float: right;
+}
+
+.podpis {
+    font-size: 15px;
+    color: #00ff9c;
+    text-transform: uppercase;
+}
+
+.banner {
+    width: fit-content;
+    text-align: center;
+}
